@@ -14,7 +14,7 @@ model Users {
   createdAt DateTime @default(now())
   updatedAt DateTime
   bookigs   Bookig[]
-  reviews Review[]
+  reviews   Review[]
 }
 
 model Barbershop {
@@ -23,9 +23,9 @@ model Barbershop {
   address     String
   phones      String[]
   description String
-  imageURL    String
+  imageUrl    String
   createdAt   DateTime            @default(now())
-  updated     DateTime
+  updatedAt   DateTime?
   services    BarbershopService[]
 }
 
@@ -38,7 +38,7 @@ model BarbershopService {
   barbershopId String
   barbershop   Barbershop @relation(fields: [barbershopId], references: [id])
   bookigs      Bookig[]
-  reviews Review[]
+  reviews      Review[]
 }
 
 model Bookig {
@@ -50,17 +50,16 @@ model Bookig {
   updated           DateTime
   user              Users             @relation(fields: [userId], references: [id])
   barbershopService BarbershopService @relation(fields: [serviceId], references: [id])
-  
 }
 
 model Review {
-  id        String   @id @default(uuid())
-  serviceId String
-  userId     String
-  rating    Int
+  id                String            @id @default(uuid())
+  serviceId         String
+  userId            String
+  rating            Int
   user              Users             @relation(fields: [userId], references: [id])
   barbershopService BarbershopService @relation(fields: [serviceId], references: [id])
-  feedback  String
-  createdAt DateTime @default(now())
-  updated   DateTime
+  feedback          String
+  createdAt         DateTime          @default(now())
+  updated           DateTime
 }
