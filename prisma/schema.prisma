@@ -12,7 +12,7 @@ model Users {
   email     String   @unique
   name      String?
   createdAt DateTime @default(now())
-  updatedAt DateTime
+  updatedAt DateTime?
   bookigs   Bookig[]
   reviews   Review[]
 }
@@ -36,6 +36,8 @@ model BarbershopService {
   imageUrl     String
   price        Decimal    @db.Decimal(10, 2)
   barbershopId String
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime?
   barbershop   Barbershop @relation(fields: [barbershopId], references: [id])
   bookigs      Bookig[]
   reviews      Review[]
@@ -47,7 +49,7 @@ model Bookig {
   serviceId         String
   date              DateTime
   createdAt         DateTime          @default(now())
-  updated           DateTime
+  updated           DateTime?
   user              Users             @relation(fields: [userId], references: [id])
   barbershopService BarbershopService @relation(fields: [serviceId], references: [id])
 }
@@ -61,5 +63,5 @@ model Review {
   barbershopService BarbershopService @relation(fields: [serviceId], references: [id])
   feedback          String
   createdAt         DateTime          @default(now())
-  updated           DateTime
+  updated           DateTime?
 }
