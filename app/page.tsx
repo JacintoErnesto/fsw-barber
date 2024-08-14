@@ -8,6 +8,7 @@ import { db } from './_lib/prisma'
 import BarbershopItem from "./_components/barbershop- items";
 import { quickSearchOptions } from "./_constants/search";
 import Booking from "./_components/booking-item";
+import Footer from "./_components/footer";
 
 
 
@@ -81,19 +82,7 @@ const Home = async () => {
         </div>
 
       </div>
-      <footer>
-
-        <Card className="px-5 ">
-          <CardContent className="text-sm text-gray-400">
-            <p className="mt-5">
-              @ 2024 Copyright <span className="font-bold">FSW Barber</span>
-
-            </p>
-          </CardContent>
-        </Card>
-
-      </footer>
-
+     
 
     </div>
   )
