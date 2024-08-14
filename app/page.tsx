@@ -3,12 +3,11 @@ import Header from "./_components/header";
 import { Button } from "./_components/ui/button";
 import Image from "next/image";
 import { Input } from "./_components/ui/input";
-import { Card, CardContent } from "./_components/ui/card";
 import { db } from './_lib/prisma'
 import BarbershopItem from "./_components/barbershop- items";
 import { quickSearchOptions } from "./_constants/search";
 import Booking from "./_components/booking-item";
-import Footer from "./_components/footer";
+
 
 
 

@@ -7,8 +7,6 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import ServiceItem from "@/app/_components/service-item";
 import PhoneItem from "@/app/_components/phone-item";
-import Footer from "@/app/_components/footer";
-
 
 interface BarbershopsProps {
     params: {
