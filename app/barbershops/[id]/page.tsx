@@ -7,6 +7,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import ServiceItem from "@/app/_components/service-item";
 import PhoneItem from "@/app/_components/phone-item";
+import { Sheet, SheetTrigger } from "@/app/_components/ui/sheet";
+import SidebarSheets from "@/app/_components/sidebar-sheets";
 
 interface BarbershopsProps {
     params: {
@@ -60,17 +62,22 @@ const BarbershopsPage = async ({ params }: BarbershopsProps) => {
 
                 </Button>
 
-                <Button
-                    size="icon"
-                    variant="secondary"
-                    className="absolute top-4 right-4"
-                    asChild
-                >
-                    <Link href="/">
-                        <MenuIcon />
-                    </Link>
+                <Sheet>
+                    <SheetTrigger asChild>
+                        <Button
+                            size="icon"
+                            variant="outline"
+                            className="absolute top-4 right-4"
+                            asChild
+                        >
+                            <MenuIcon />
+                        </Button>
+                    </SheetTrigger>
 
-                </Button>
+                    <SidebarSheets />
+                </Sheet>
+
+
             </div>
 
             {/* Título */}
@@ -106,10 +113,10 @@ const BarbershopsPage = async ({ params }: BarbershopsProps) => {
 
             <div className="p-5">
                 {barbershop.phones.map((phone) => (
-                   <PhoneItem key={phone} phone={phone}/>
+                    <PhoneItem key={phone} phone={phone} />
                 ))}
             </div>
-          
+
         </div>
     );
 }
